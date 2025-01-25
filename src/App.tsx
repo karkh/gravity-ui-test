@@ -1,11 +1,12 @@
 import {InfoButtons} from './components/InfoButtons';
-import {Wrapper} from './components/Wrapper';
+// import {Wrapper} from './components/Wrapper';
+import {WindowLayout} from './components/WindowLayout';
 
 const App = () => {
     return (
-        <Wrapper>
+        <WindowLayout>
             <InfoButtons />
-        </Wrapper>
+        </WindowLayout>
     );
 };
 
