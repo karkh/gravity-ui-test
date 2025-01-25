@@ -1,0 +1,17 @@
+$block: '.windowLayout';
+
+#{$block} {
+    display: flex;
+
+    &__left-panel {
+        width: 300px;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+
+    &__main {
+        height: 100vh;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+}

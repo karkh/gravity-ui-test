@@ -1,11 +1,11 @@
 import React from 'react';
 import block from 'bem-cn-lite';
-import {Button, Icon, Theme, ThemeProvider} from '@gravity-ui/uikit';
+import {Button, Icon, Theme, ThemeProvider, User} from '@gravity-ui/uikit';
 import {Moon, Sun} from '@gravity-ui/icons';
 
-import './window-layout.scss';
+import './WindowLayout.scss';
 
-const b = block('window');
+const b = block('windowLayout');
 
 const DARK = 'dark';
 const LIGHT = 'light';
@@ -25,17 +25,25 @@ export const WindowLayout: React.FC<AppProps> = ({children}) => {
     return (
         <ThemeProvider theme={theme}>
             <div className={b()}>
-                <Button
-                    size="l"
-                    view="outlined"
-                    onClick={() => {
-                        setTheme(isDark ? LIGHT : DARK);
-                    }}
-                >
-                    <Icon data={isDark ? Sun : Moon} />
-                </Button>
+                <div className={b('left-panel')}>
+                    <Button
+                        size="l"
+                        view="outlined"
+                        onClick={() => {
+                            setTheme(isDark ? LIGHT : DARK);
+                        }}
+                    >
+                        <Icon data={isDark ? Sun : Moon} />
+                    </Button>
+                    <User
+                        avatar={{text: 'Pavel Karkh', theme: 'brand'}}
+                        name="Pavel Karkh"
+                        description="pavelkarkh@gmail.com"
+                        size="l"
+                    />
+                </div>
+                <div className={b('main')}>{children}</div>
             </div>
-            {children}
         </ThemeProvider>
     );
 };
